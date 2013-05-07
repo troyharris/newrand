@@ -1,7 +1,6 @@
 package newrand
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
@@ -16,14 +15,14 @@ func Intr(a, b int) int {
 	return r + a
 }
 
-func Hit(p int) (bool, error) {
+func Hit(p int) bool {
 	if p > 100 {
-		return false, fmt.Errorf("Percentage is %v. Must be 100 or less", p)
+		p = 100
 	}
 	r := rand.Intn(100)
-	if p > r {
-		return true, nil
+	if p >= r {
+		return true
 	} else {
-		return false, nil
+		return false
 	}
 }

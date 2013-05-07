@@ -18,11 +18,7 @@ func TestHit(t *testing.T) {
 	const p = 50
 	count := 0
 	for i := 0; i < 10000; i++ {
-		v, err := Hit(p)
-		if err != nil {
-			t.Error("Percentage out of range")
-			return
-		}
+		v := Hit(p)
 		if v {
 			count++
 		}
